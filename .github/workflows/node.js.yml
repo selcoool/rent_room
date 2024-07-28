@@ -37,15 +37,20 @@ jobs:
 
         script: |
           echo "Checking if the project directory exists..."
+
+          docker stop $(docker ps -aq) || true
+          docker rm $(docker ps -aq) || true
+          docker rmi $(docker images -q) || true
+
           if [ -d "/root/rent_room" ]; then
             echo "Directory exists. Pulling latest changes..."
             cd /root/rent_room
             if [ -d ".git" ]; then
        
               git pull origin main
-              docker stop $(docker ps -aq) || true
-              docker rm $(docker ps -aq) || true
-              docker rmi $(docker images -q) || true
+              # docker stop $(docker ps -aq) || true
+              # docker rm $(docker ps -aq) || true
+              # docker rmi $(docker images -q) || true
               docker-compose up -d
             else
       
