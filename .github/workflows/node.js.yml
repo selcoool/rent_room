@@ -17,14 +17,14 @@ jobs:
     - name: Display GitHub Username
       run: echo "Repository:" ${{ github.repository }}
 
-    - name: Display actor Name
-      run: echo "Actor:" ${{ github.actor }}
+    # - name: Display actor Name
+    #   run: echo "Actor:" ${{ github.actor }}
 
-    - name: Display server VPS_IP
-      run: echo "VPS_IP:" ${{ secrets.VPS_IP }}
+    # - name: Display server VPS_IP
+    #   run: echo "VPS_IP:" ${{ secrets.VPS_IP }}
 
-    - name: Display server VPS_PASSWORD
-      run: echo "VPS_PASSWORD:" ${{ secrets.VPS_PASSWORD }}
+    # - name: Display server VPS_PASSWORD
+    #   run: echo "VPS_PASSWORD:" ${{ secrets.VPS_PASSWORD }}
 
     - name: SSH to VPS and update project
       uses: appleboy/ssh-action@master
