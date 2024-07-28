@@ -35,18 +35,38 @@ jobs:
         password: ${{ secrets.VPS_PASSWORD }}  # Sử dụng nếu bạn dùng mật khẩu cho SSH
         # key: ${{ secrets.VPS_SSH_KEY }}  # Sử dụng nếu bạn dùng khóa SSH
         script: |
-          echo "Stopping and removing all Docker containers and images..."
-          docker stop $(docker ps -aq) || true
-          docker rm $(docker ps -aq) || true
-          docker rmi $(docker images -q) || true
-          echo "Removing the rent_room directory if it exists..."
-          rm -rf /root/rent_room
-          echo "Cloning the repository..."
-          git clone https://github.com/${{ github.repository }} /root/rent_room
-          cd /root/rent_room
-          echo "Running docker-compose up..."
-          docker-compose up -d
-          echo "Deployment complete."
+          echo "Checking if the project directory exists..."
+          if [ -d "/root/rent_room" ]; then
+            echo "Tồn tại thư mục dự án"
+            # cd /root/rent_room
+            # git pull origin main
+            # docker-compose up -d
+           
+          else
+          
+            echo "Không hề tồn tại thư mục dự án"
+            # mkdir -p /root/rent_room
+            # git clone https://github.com/${{ github.repository }} /root/rent_room
+            # # docker stop $(docker ps -aq) || true
+            # # docker rm $(docker ps -aq) || true
+            # # docker rmi $(docker images -q) || true
+            # docker-compose up -d
+          fi
+          echo "Directory and repository setup complete."
+          
+          
+          # echo "Stopping and removing all Docker containers and images..."
+          # docker stop $(docker ps -aq) || true
+          # docker rm $(docker ps -aq) || true
+          # docker rmi $(docker images -q) || true
+          # echo "Removing the rent_room directory if it exists..."
+          # rm -rf /root/rent_room
+          # echo "Cloning the repository..."
+          # git clone https://github.com/${{ github.repository }} /root/rent_room
+          # cd /root/rent_room
+          # echo "Running docker-compose up..."
+          # docker-compose up -d
+          # echo "Deployment complete."
 
 
 # jobs:
@@ -108,7 +128,7 @@ jobs:
 #             # docker stop $(docker ps -aq) || true
 #             # docker rm $(docker ps -aq) || true
 #             # docker rmi $(docker images -q) || true
-#             docker-compose up -d
+#             docker-compose up -d 
 #           fi
 #           echo "Directory and repository setup complete."
 
