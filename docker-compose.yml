@@ -6,7 +6,7 @@ services:
     build:
       context: ./ui_react
     ports:
-      - "3000:3000"
+      - "3001:3001"
     environment:
       - NODE_ENV=production
 
@@ -14,7 +14,7 @@ services:
     build:
       context: ./api_node
     ports:
-      - "5000:5000"
+      - "5001:5001"
     environment:
       - NODE_ENV=production
 
