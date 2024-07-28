@@ -26,35 +26,33 @@ jobs:
     - name: Display server VPS_PASSWORD
       run: echo "VPS_PASSWORD:" ${{ secrets.VPS_PASSWORD }}
 
-    - name: Display server VPS_SSH_KEY
-      run: echo "VPS_SSH_KEY:" ${{ secrets.VPS_SSH_KEY }}
 
-    # - name: SSH to VPS and update project
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.VPS_IP }}
-    #     username: ${{ secrets.VPS_USERNAME }}
-    #     password: ${{ secrets.VPS_PASSWORD }}  # Sử dụng nếu bạn dùng mật khẩu cho SSH
-    #     # key: ${{ secrets.VPS_SSH_KEY }}  # Sử dụng nếu bạn dùng khóa SSH
+    - name: SSH to VPS and update project
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VPS_IP }}
+        username: ${{ secrets.VPS_USERNAME }}
+        password: ${{ secrets.VPS_PASSWORD }}  # Sử dụng nếu bạn dùng mật khẩu cho SSH
+        # key: ${{ secrets.VPS_SSH_KEY }}  # Sử dụng nếu bạn dùng khóa SSH
 
-    #     script: |
-    #       echo "Checking if the project directory exists..."
-    #       if [ -d "/root/rent_room" ]; then
-    #         echo "Directory exists. Pulling latest changes..."
-    #         cd /root/rent_room
-    #         if [ -d ".git" ]; then
-    #           git pull origin main
-    #         else
-    #           echo "Not a git repository. Cloning again..."
-    #           rm -rf /root/rent_room
-    #           git clone https://github.com/${{ github.repository }} /root/rent_room
-    #         fi
-    #       else
-    #         echo "Directory does not exist. Creating and cloning..."
-    #         mkdir -p /root/rent_room
-    #         git clone https://github.com/${{ github.repository }} /root/rent_room
-    #       fi
-    #       echo "Directory and repository setup complete."
+        script: |
+          echo "Checking if the project directory exists..."
+          if [ -d "/root/rent_room" ]; then
+            echo "Directory exists. Pulling latest changes..."
+            cd /root/rent_room
+            if [ -d ".git" ]; then
+              git pull origin main
+            else
+              echo "Not a git repository. Cloning again..."
+              rm -rf /root/rent_room
+              git clone https://github.com/${{ github.repository }} /root/rent_room
+            fi
+          else
+            echo "Directory does not exist. Creating and cloning..."
+            mkdir -p /root/rent_room
+            git clone https://github.com/${{ github.repository }} /root/rent_room
+          fi
+          echo "Directory and repository setup complete."
         # script: |
         #   cd /root || git clone https://github.com/secoool/rent_room.git /path/to/your/project && cd /path/to/your/project
         #   git pull origin main
