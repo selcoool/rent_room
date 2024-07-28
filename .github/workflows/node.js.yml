@@ -46,6 +46,7 @@ jobs:
           
             echo "Không hề tồn tại thư mục dự án"
             mkdir -p /root/rent_room
+            cd /root/rent_room
             git clone https://github.com/${{ github.repository }} /root/rent_room
             docker-compose up -d
           fi
