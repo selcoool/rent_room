@@ -52,9 +52,9 @@ jobs:
               echo "Not a git repository. Cloning again..."
               rm -rf /root/rent_room
               git clone https://github.com/${{ github.repository }} /root/rent_room
-              docker stop $(docker ps -aq) || true
-              docker rm $(docker ps -aq) || true
-              docker rmi $(docker images -q) || true
+              # docker stop $(docker ps -aq) || true
+              # docker rm $(docker ps -aq) || true
+              # docker rmi $(docker images -q) || true
               docker-compose up -d
             fi
           else
