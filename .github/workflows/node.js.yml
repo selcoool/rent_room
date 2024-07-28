@@ -40,7 +40,7 @@ jobs:
             echo "Tồn tại thư mục dự án"
             cd /root/rent_room
             git pull origin main
-            docker-compose up -d -build
+            docker-compose up -d --build
            
           else
           
