@@ -39,7 +39,7 @@ jobs:
           if [ -d "/root/rent_room" ]; then
             echo "Tồn tại thư mục dự án"
             cd /root/rent_room
-            git pull origin main
+            git pull
             docker-compose up -d --build
            
           else
