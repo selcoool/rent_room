@@ -49,14 +49,14 @@ jobs:
         #   fi
         #   echo "Hoàn thành công việc. Chúc mừng bạn đã hoàn thành"
 
-        # script: |
-        #   echo "Xoa thu muc du an"
-        #   rm -rf /root/rent_room
-        #   echo "Xoa images and container"
-        #   docker stop $(docker ps -aq) || true
-        #   docker rm $(docker ps -aq) || true
-        #   docker rmi $(docker images -q) || true
-        #   echo "Xoa du an"
+        script: |
+          echo "Xoa thu muc du an"
+          rm -rf /root/rent_room
+          echo "Xoa images and container"
+          docker stop $(docker ps -aq) || true
+          docker rm $(docker ps -aq) || true
+          docker rmi $(docker images -q) || true
+          echo "Xoa du an"
           
           
 
