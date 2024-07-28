@@ -5,16 +5,16 @@ services:
   react-app:
     build:
       context: ./ui_react
-    ports:
-      - "7000:7000"
+    # ports:
+    #   - "7000:7000"
     environment:
       - NODE_ENV=production
 
   node-app:
     build:
       context: ./api_node
-    ports:
-      - "9000:9000"
+    # ports:
+    #   - "9000:9000"
     environment:
       - NODE_ENV=production
 
