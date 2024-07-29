@@ -5,18 +5,18 @@ services:
   react-app:
     build:
       context: ./ui_react
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
+    # ports:
+    #   - "3000:3000"
+    # environment:
+    #   - NODE_ENV=production
 
   node-app:
     build:
       context: ./api_node
-    ports:
-      - "5000:5000"
-    environment:
-      - NODE_ENV=production
+    # ports:
+    #   - "5000:5000"
+    # environment:
+    #   - NODE_ENV=production
 
   # app:
   #   image: 'jc21/nginx-proxy-manager:latest'
