@@ -19,5 +19,5 @@ RUN npm run build
 # Serve the application using a static file server
 RUN npm install -g serve
 CMD ["serve", "-s", "build"]
-# Expose port 3000g
+# Expose port 4000
 EXPOSE 4000
