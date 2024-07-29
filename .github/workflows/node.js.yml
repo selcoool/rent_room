@@ -1,4 +1,4 @@
-name: Deploy to VPS 122
+name: Deploy to VPS 1221222222222
 
 on:
   push:
@@ -53,6 +53,7 @@ jobs:
           echo "Xoa thu muc du an"
           rm -rf /root/rent_room
           echo "Xoa images and container"
+          docker-compose down
           docker system prune -a
           # docker stop $(docker ps -aq) || true
           # docker rm $(docker ps -aq) || true
