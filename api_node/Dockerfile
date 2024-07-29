@@ -13,4 +13,4 @@ COPY . .
 # Start the Node.js application
 CMD ["npm", "start"]
 # Expose port 5000
-EXPOSE 5000
+EXPOSE 6000
