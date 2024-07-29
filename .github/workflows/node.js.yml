@@ -60,7 +60,7 @@ jobs:
           docker-compose down
           docker system prune -a -f
             sudo systemctl restart docker
-          echo "Xoa du an"
+          echo "Xoa du an 1"
           
           
 
