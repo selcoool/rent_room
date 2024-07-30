@@ -1,4 +1,4 @@
-name: Deploy to VPS 122122222222277999
+name: Deploy to VPS 1
 
 on:
   push:
