@@ -2,7 +2,7 @@
 # version: '3'
 services:
   
-  ui_react:
+  react-app:
     build:
       context: ./ui_react
     ports:
@@ -10,7 +10,7 @@ services:
     environment:
       - NODE_ENV=production
 
-  api_node:
+  node-app:
     build:
       context: ./api_node
     ports:
