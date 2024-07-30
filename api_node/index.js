@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello World Dan Chi Sua Qua')
+  res.send('BACKEND CAP NHAT MOI')
 })
 
 app.get('/sua', (req, res) => {
@@ -10,7 +10,7 @@ app.get('/sua', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.send('about')
+  res.send('about ')
 })
 
 app.listen(4200, () => {
