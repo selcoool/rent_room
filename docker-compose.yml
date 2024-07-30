@@ -14,7 +14,7 @@ services:
     build:
       context: ./api_node
     ports:
-      - "6000:6000"
+      - "4200:4200"
     environment:
       - NODE_ENV=production
 

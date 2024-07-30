@@ -13,6 +13,6 @@ app.get('/about', (req, res) => {
   res.send('about')
 })
 
-app.listen(6000, () => {
-  console.log(`Example app listening on port 6000`)
+app.listen(4200, () => {
+  console.log(`Example app listening on port 4200`)
 })
