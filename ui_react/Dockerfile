@@ -16,6 +16,17 @@ RUN npm install
 COPY . .
 # Build the React application
 RUN npm run build
+
+# Copy the entry point script to the container
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
+# Make the entry point script executable
+RUN chmod +x /docker-entrypoint.sh
+
+# Set the entry point to the script
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+
 # Serve the application using a static file server
 RUN npm install -g serve
 CMD ["serve", "-s", "build"]
