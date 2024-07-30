@@ -3,7 +3,7 @@ function HomePage() {
 
     return (
       <div>
-      FRONDEND CAP NHAT MOI
+      FRONDEND CAP NHAT MOI UPDATED
       </div>
     )
   }
