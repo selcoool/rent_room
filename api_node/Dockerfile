@@ -12,17 +12,8 @@ RUN npm install
 COPY . .
 
 
-# Copy the entrypoint script to the root of the container filesystem
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-
-# Make the entrypoint script executable
-RUN chmod +x /docker-entrypoint.sh
-
-# Set the entrypoint script
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
+# # Expose port 6000
+EXPOSE 6000
 
 # Start the Node.js application
 CMD ["npm", "start"]
-# # Expose port 6000
-# EXPOSE 6000
