@@ -1,38 +1,77 @@
-# Use the official Node.js 22.5 image as the base image for building
-FROM node:22.5-alpine AS build
 
-# Set the working directory
+# Use the official Node.js image.
+FROM node:22.5-alpine
+
+# # Base imag
+# FROM node:14-alpine
+# Set working directory
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the container
-COPY package.json package-lock.json ./
-
+# Copy package.json and package-lock.json
+COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# # Install dependencies
+# RUN npm ci
+# Copy the rest of the application
 COPY . .
-
 # Build the React application
 RUN npm run build
 
-# Use the official Node.js 22.5 image as the base image for serving
-FROM node:22.5-alpine
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the build output from the previous stage
-COPY --from=build /app/build /app/build
-
-# Install serve package to serve the build
+# Serve the application using a static file server
 RUN npm install -g serve
+CMD ["serve", "-s", "build"]
+# # Expose port 7000
+ EXPOSE 7000
 
-# Expose port 3000 for the server
-EXPOSE 7000
 
-# Start the application on port 3000
-CMD ["serve", "-s", "build", "-l", "7000"]
+
+
+
+
+
+
+
+
+
+
+
+
+# # Use the official Node.js 22.5 image as the base image for building
+# FROM node:22.5-alpine AS build
+
+# # Set the working directory
+# WORKDIR /app
+
+# # Copy package.json and package-lock.json to the container
+# COPY package.json package-lock.json ./
+
+# # Install dependencies
+# RUN npm install
+
+# # Copy the rest of the application code to the container
+# COPY . .
+
+# # Build the React application
+# RUN npm run build
+
+# # Use the official Node.js 22.5 image as the base image for serving
+# FROM node:22.5-alpine
+
+# # Set the working directory
+# WORKDIR /app
+
+# # Copy the build output from the previous stage
+# COPY --from=build /app/build /app/build
+
+# # Install serve package to serve the build
+# RUN npm install -g serve
+
+# # Expose port 3000 for the server
+# EXPOSE 7000
+
+# # Start the application on port 3000
+# CMD ["serve", "-s", "build", "-l", "7000"]
 
 
 
