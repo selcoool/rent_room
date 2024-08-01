@@ -18,7 +18,7 @@ services:
     build:
       context: ./ui_react
     ports:
-      - "8000:8000"
+      - "4000:4000"
     networks:
       - rent_room_network
     environment:
