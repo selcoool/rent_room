@@ -1,3 +1,4 @@
+
 # Use the official Node.js 22.5 image as the base image for building
 FROM node:22.5-alpine AS build
 
@@ -29,10 +30,10 @@ COPY --from=build /app/build /app/build
 RUN npm install -g serve
 
 # Expose port 3000 for the server
-EXPOSE 6000
+EXPOSE 8000
 
 # Start the application on port 3000
-CMD ["serve", "-s", "build", "-l", "6000"]
+CMD ["serve", "-s", "build", "-l", "8000"]
 
 
 
