@@ -2,30 +2,36 @@
 # version: '3'
 services:
 
-  app:
-    image: 'jc21/nginx-proxy-manager:latest'
-    restart: unless-stopped
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
-    volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+  # app:
+  #   image: 'jc21/nginx-proxy-manager:latest'
+  #   restart: unless-stopped
+  #   ports:
+  #     - '80:80'
+  #     - '81:81'
+  #     - '443:443'
+  #   volumes:
+  #     - ./data:/data
+  #     - ./letsencrypt:/etc/letsencrypt
     
   ui_react:
+    container_name: ui_react
     build:
       context: ./ui_react
     ports:
       - "8000:8000"
+    networks:
+      - rent_room_network
     environment:
       - NODE_ENV=production
 
   api_node:
+    container_name: api_node
     build:
       context: ./api_node
     ports:
       - "9000:9000"
+    networks:
+      - rent_room_network
     environment:
       - NODE_ENV=production
 
@@ -34,7 +40,9 @@ services:
     #   - react-app
     #   - node-app
 
-
+networks:
+  rent_room_network:
+    driver: bridge
 
 
 
