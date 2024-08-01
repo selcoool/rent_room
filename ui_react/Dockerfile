@@ -18,11 +18,13 @@ COPY . .
 # Build the React application
 RUN npm run build
 
+
+# # Expose port 8000
+EXPOSE 8000
 # Serve the application using a static file server
 RUN npm install -g serve
 CMD ["serve", "-s", "build"]
-# # Expose port 7000
- EXPOSE 7000
+
 
 
 
