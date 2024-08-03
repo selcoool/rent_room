@@ -14,8 +14,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Display GitHub Username
-      run: echo "Repository:" ${{ github.repository }}
+    # - name: Display GitHub Username
+    #   run: echo "Repository:" ${{ github.repository }}
 
     # - name: Display actor Name
     #   run: echo "Actor:" ${{ github.actor }}
