@@ -16,12 +16,6 @@ COPY . .
 # Build the React application
 RUN npm run build
 
-# # Copy the shell script to the container
-# COPY docker_cleanup.sh /app/
-
-# # Make the shell script executable
-# RUN chmod +x /app/docker_cleanup.sh
-
 # Use the official Node.js 22.5 image as the base image for serving
 FROM node:22.5-alpine
 
