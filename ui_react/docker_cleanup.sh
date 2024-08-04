@@ -3,20 +3,22 @@
 # Print a message
 echo "Starting Docker cleanup..."
 
-# Remove dangling images
-docker image prune -f
+docker system prune -a -f
 
-# Remove all unused images
-docker image prune -a -f
+# # Remove dangling images
+# docker image prune -f
 
-# Remove stopped containers
-docker container prune -f
+# # Remove all unused images
+# docker image prune -a -f
 
-# Remove unused networks
-docker network prune -f
+# # Remove stopped containers
+# docker container prune -f
 
-# Remove unused volumes
-docker volume prune -f
+# # Remove unused networks
+# docker network prune -f
+
+# # Remove unused volumes
+# docker volume prune -f
 
 # Optionally, you can remove everything (including volumes) with the following command:
 # docker system prune -a --volumes -f
