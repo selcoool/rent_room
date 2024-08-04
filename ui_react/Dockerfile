@@ -16,6 +16,7 @@ COPY . .
 # Build the React application
 RUN npm run build
 
+
 # Use the official Node.js 22.5 image as the base image for serving
 FROM node:22.5-alpine
 
@@ -31,8 +32,12 @@ RUN npm install -g serve
 # Expose port 3000 for the server
 EXPOSE 4000
 
+
 # Start the application on port 3000
 CMD ["serve", "-s", "build", "-l", "4000"]
+
+
+
 
 
 

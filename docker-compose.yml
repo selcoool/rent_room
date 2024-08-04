@@ -29,6 +29,23 @@ services:
     depends_on:
       - db
 
+  ui_react:
+    container_name: ui_react
+    restart: unless-stopped
+    build:
+      context: ./ui_react
+    ports:
+      - "4000:4000"
+    networks:
+      - rent_room_network
+    env_file:
+      - ./ui_react/.env
+    depends_on:
+      - api_node
+    
+
+  
+
 volumes:
   db_data:
 
